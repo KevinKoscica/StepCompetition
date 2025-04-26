@@ -19,7 +19,7 @@ struct LoginView: View {
                 .resizable()
                 .scaledToFit()
             Text("Welcome to Step Competition")
-                .font(.title)
+                .font(.title2)
             Spacer()
             Text("Please log in below or sign up")
             

@@ -69,6 +69,8 @@ struct CompetitionView: View {
            if stepCounter.steps.count == 0{
                 do{
                     try await stepCounter.calculateSteps()
+                    
+                    
                     stepCounter.saveStepsToFirebase()
                 } catch{
                     print(error)

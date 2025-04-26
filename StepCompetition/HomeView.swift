@@ -52,24 +52,21 @@ struct HomeView: View {
         
         .task {
             do {
-                if totalSteps == 0 {
+                if totalSteps == 0 && totalCompSteps == 0{
                     try await stepCounter.calculateSteps()
                     
                 totalSteps = stepCounter.getWeeklyTotal()
-                    
+                   try await stepCounter.calculateStepsComp()
+                    totalCompSteps = stepCounter.getCompetitionStepsTotal()
                     
                }
             } catch {
                 print("⚠️ Failed to fetch steps: \(error.localizedDescription)")
             }
         }
-        .onAppear(){
-            Task{
-                try await stepCounter.calculateStepsComp()
-                totalCompSteps = stepCounter.getCompetitionStepsTotal()
-            }
+        
             
-        }
+        
         
         
     }

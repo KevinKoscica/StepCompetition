@@ -56,6 +56,7 @@ class StepCounter {
             }
         }
     }
+    
     func getCompetitionStepsTotal() -> Int {
         return steps.reduce(0) { $0 + $1.count }
     }
