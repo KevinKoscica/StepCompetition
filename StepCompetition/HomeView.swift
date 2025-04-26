@@ -17,7 +17,7 @@ struct HomeView: View {
     var body: some View {
         VStack {
             
-            // Display the total weekly steps
+            
             
             Text("Steps this Week: \(totalSteps)")
             
@@ -52,14 +52,14 @@ struct HomeView: View {
         
         .task {
             do {
-                if totalSteps == 0 && totalCompSteps == 0{
+               
                     try await stepCounter.calculateSteps()
                     
                 totalSteps = stepCounter.getWeeklyTotal()
                    try await stepCounter.calculateStepsComp()
                     totalCompSteps = stepCounter.getCompetitionStepsTotal()
                     
-               }
+               
             } catch {
                 print("⚠️ Failed to fetch steps: \(error.localizedDescription)")
             }

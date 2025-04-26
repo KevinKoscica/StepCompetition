@@ -160,7 +160,7 @@ class StepCounter {
         return steps.reduce(0) { $0 + $1.count }
     }
    
-        static func startNewCompetition() {
+        static func startNewCompetition() { //This function could be in a standalone class or struct but thought it was more convenient to keep this with the step counter
             let db = Firestore.firestore(database: "steps")
             let usersRef = db.collection("users")
             let globalRef = db.collection("global").document("competition")
@@ -168,7 +168,7 @@ class StepCounter {
             let startDate = Date()
             guard let endDate = Calendar.current.date(byAdding: .day, value: 7, to: startDate) else { return }
 
-            // 1. Save global competition dates
+            // 1. Save dates 
             globalRef.setData([
                 "competitionStartDate": Timestamp(date: startDate),
                 "competitionEndDate": Timestamp(date: endDate)
@@ -179,7 +179,7 @@ class StepCounter {
                 }
                 print("✅ Global competition dates set.")
 
-                // 2. Update every user's competition dates
+                // 2. Update every user's competition dates in firebase and stores them 
                 usersRef.getDocuments { snapshot, error in
                     if let error = error {
                         print("❌ Failed to fetch users: \(error.localizedDescription)")
@@ -192,7 +192,7 @@ class StepCounter {
                         usersRef.document(document.documentID).updateData([
                             "competitionStartDate": Timestamp(date: startDate),
                             "competitionEndDate": Timestamp(date: endDate),
-                            "steps": 0 // optional reset
+                            "steps": 0
                         ]) { err in
                             if let err = err {
                                 print("❌ Error updating user \(document.documentID): \(err.localizedDescription)")

@@ -14,12 +14,12 @@ struct LeaderBoardView: View {
     @State private var competitionStartDate: Date?
     @State private var competitionEndDate: Date?
     @State private var stepCounter = StepCounter()
-    @StateObject private var viewModel = UsersViewModel()
+    @StateObject private var userVM = UsersViewModel()
     @State private var index = 1
     var body: some View {
         NavigationStack{
-            
-            if let start = viewModel.competitionStartDate, let end = viewModel.competitionEndDate {
+            //getting the date of the competition from the view model
+            if let start = userVM.competitionStartDate, let end = userVM.competitionEndDate {
                     HStack() {
                         Text(" Competition started: \(start.formatted(date: .abbreviated, time: .omitted))")
                             .font(.caption)
@@ -33,7 +33,7 @@ struct LeaderBoardView: View {
                     
                 }
             
-            List(Array(viewModel.users.sorted(by: { $0.steps > $1.steps }).enumerated()), id: \.element.id) { index, user in
+            List(Array(userVM.users.sorted(by: { $0.steps > $1.steps }).enumerated()), id: \.element.id) { index, user in
                 HStack {
                     // Use emojis for the first 3 places, otherwise show the rank number
                     Text(getRankEmoji(for: index))
@@ -75,7 +75,7 @@ struct LeaderBoardView: View {
                 stepCounter.saveStepsToFirebase()
             }
            
-            viewModel.fetchUsers()
+            userVM.fetchUsers()
             
             
         }
