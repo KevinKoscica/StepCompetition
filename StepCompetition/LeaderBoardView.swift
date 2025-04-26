@@ -61,8 +61,7 @@ struct LeaderBoardView: View {
                 
                 .listStyle(.plain)
                 .font(.title2)
-                .scrollContentBackground(.hidden)
-
+              
             }
             
                   
