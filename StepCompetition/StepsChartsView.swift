@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
-
+import Charts
 struct StepsChartsView: View {
+    let steps: [Step]
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Chart{
+            ForEach(steps) { step in
+                BarMark(x: .value("Date", step.date), y: .value("Count", step.count))
+                    .foregroundStyle(isUnder10000(step.count) ? .red : .green)
+            }
+        }
     }
 }
 
-#Preview {
-    StepsChartsView()
-}
+

@@ -6,3 +6,14 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseFirestore
+
+
+struct Step: Identifiable {
+    let id = UUID()
+    let count: Int
+    let date: Date
+}
+
+

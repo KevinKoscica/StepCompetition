@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+func isUnder10000(_ count: Int) -> Bool{
+    count < 10000
+}
