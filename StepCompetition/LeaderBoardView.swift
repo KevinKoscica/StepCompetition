@@ -30,7 +30,7 @@ struct LeaderBoardView: View {
                     .padding(.horizontal)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
-                    .padding(.horizontal)
+                    
                 }
             
             List(Array(viewModel.users.sorted(by: { $0.steps > $1.steps }).enumerated()), id: \.element.id) { index, user in
@@ -63,10 +63,10 @@ struct LeaderBoardView: View {
 
             }
             
-
+                    .listStyle(.plain)
                     .font(.title2)
                 
-                .listStyle(.plain)
+                
                 .navigationTitle("Current Leaderboard")
             }
         .onAppear {
