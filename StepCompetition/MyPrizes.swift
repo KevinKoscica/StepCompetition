@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MyPrizes: View {
     @State private var count = 10  // set to 10 to simulate max wins before grand prize, real app would save win count in firebase firestore
-    //@State private var catImageURL = URL(string: "https://cataas.com/cat")!
+    
     @State private var claimedRewards: Set<String> = []
     @State private var showConfetti = false
     @State private var catImageURL: URL? = nil
