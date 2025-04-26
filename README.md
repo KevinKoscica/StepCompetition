@@ -3,6 +3,7 @@ My name is Kevin Koscica and I am a second year MBA student here at Boston Colle
 Here is my [Linkedin](https://www.linkedin.com/in/kevin-koscica-03000825a/)
 
 APP: Step Competition
+***THIS APP WILL NOT SHOW UP IN PREVIEW OR FUNCTION DUE TO HEALTH KIT, MUST BE DOWNLOADED ONTO PHONE TO USE*****
 
 Description: Using apples health kit, the step competition app gains access to users steps and saves them to their unique user account. A user can start a new step competition
 but if a user creates an account after the competition starts they cannot join until the new one is over. The app uses an api call to "https://cataas.com/cat" and calls a random async
