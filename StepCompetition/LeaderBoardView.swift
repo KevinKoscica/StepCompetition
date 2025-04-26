@@ -59,10 +59,11 @@ struct LeaderBoardView: View {
                 .background(index % 2 == 0 ? Color.gray.opacity(0.1) : Color.clear) // Alternate row background color
                 .cornerRadius(8)
                 
-                .listStyle(.plain)
-                .font(.title2)
+                
               
             }
+            .listStyle(.plain)
+            .font(.title2)
             
                   
                 
